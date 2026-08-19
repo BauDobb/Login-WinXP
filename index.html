@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to "Windows XP"</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            font-family: Tahoma, sans-serif;
+            background: #4c9be8 url('assets/fondomicrosoftxp.jpeg') center center / cover fixed no-repeat;
+        }
+
+        section {
+            width: min(560px, 100%);
+            overflow: hidden;
+            border: 1px solid #003c9d;
+            border-radius: 8px 8px 4px 4px;
+            background: #ece9d8;
+            box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.45);
+        }
+
+        .window-titlebar {
+            display: flex;
+            min-height: 30px;
+            align-items: center;
+            gap: 8px;
+            padding: 3px 5px 3px 8px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            text-shadow: 1px 1px #174785;
+            background: linear-gradient(#3d9bf2, #125dcc 48%, #0b4eb7);
+        }
+
+        .window-icon {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #fff;
+            background: linear-gradient(135deg, #f9e94b 0 48%, #e43722 48%);
+            box-shadow: inset 1px 1px rgba(255, 255, 255, 0.65);
+        }
+
+        .window-title {
+            flex: 1;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 2px;
+        }
+
+        .window-control {
+            display: grid;
+            width: 21px;
+            height: 19px;
+            place-items: center;
+            border: 1px solid #fff;
+            border-radius: 3px;
+            color: #fff;
+            font: bold 13px/1 Arial, sans-serif;
+            background: linear-gradient(#70b8f5, #1764c7);
+            box-shadow: inset 1px 1px rgba(255, 255, 255, 0.45);
+        }
+
+        .window-control.close {
+            background: linear-gradient(#f58b71, #c63318);
+        }
+
+        .window-content {
+            display: grid;
+            grid-template-columns: 168px 1fr;
+            min-height: 270px;
+            border: 3px solid #d4d0c4;
+            border-top: 0;
+        }
+
+        .welcome-panel {
+            padding: 24px 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #245edb, #1147a9);
+        }
+
+        .welcome-panel h1 {
+            margin: 0 0 12px;
+            font-size: 21px;
+            font-weight: normal;
+        }
+
+        .welcome-panel p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        .login-panel {
+            padding: 28px 30px 24px;
+            background: #fff;
+        }
+
+        .title-login {
+            margin: 0 0 22px;
+            color: #1f1f1f;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 4px;
+            color: #222;
+            font-size: 12px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 14px;
+            padding: 6px 7px;
+            border: 1px solid #7f9db9;
+            border-radius: 2px;
+            font: 12px Tahoma, sans-serif;
+        }
+
+        input:focus {
+            outline: 1px solid #316ac5;
+            border-color: #316ac5;
+        }
+
+        button {
+            align-self: flex-end;
+            min-width: 92px;
+            padding: 5px 16px;
+            border: 1px solid #003c74;
+            border-radius: 3px;
+            color: #000;
+            font: 12px Tahoma, sans-serif;
+            cursor: pointer;
+            background: linear-gradient(#fff, #d8e7f7 45%, #b7d2ed);
+            box-shadow: inset 1px 1px #fff;
+        }
+
+        button:hover {
+            background: linear-gradient(#fff, #e8f2ff 45%, #c6ddf5);
+        }
+
+        .window-footer {
+            height: 3px;
+            background: #0b4eb7;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 12px;
+            }
+
+            .window-content {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-panel {
+                padding: 16px 20px;
+            }
+
+            .login-panel {
+                padding: 22px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section aria-label="Ventana de inicio de sesión">
+        <header class="window-titlebar">
+            <span class="window-icon" aria-hidden="true"></span>
+            <span class="window-title">Sign in to Windows XP</span>
+            <span class="window-controls" aria-hidden="true">
+                <span class="window-control">_</span>
+                <span class="window-control">□</span>
+                <span class="window-control close">×</span>
+            </span>
+        </header>
+        <div class="window-content">
+            <aside class="welcome-panel">
+                <h1>Welcome</h1>
+                <p>Please enter your username and password to sign in.</p>
+            </aside>
+            <div class="login-panel">
+                <h2 class="title-login">Sign in to Windows XP</h2>
+                <form action="login.php" method="post">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text" name="username" autocomplete="username" required>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" autocomplete="current-password" required>
+                    <button type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+        <div class="window-footer"></div>
+    </section>
+</body>
+</html>
